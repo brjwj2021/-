@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>나에게 딱 맞는 콘텐츠 스타일 테스트</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nunito:wght@700;800;900&display=swap');
+    :root { --ink:#292248; --sub:#716b8d; --paper:#fffaf7; --pink:#ff7ca8; --yellow:#ffcd5a; --mint:#75d8c2; --purple:#9b83e5; }
+    * { box-sizing:border-box; } body { margin:0; min-height:100vh; color:var(--ink); font-family:'Gowun Dodum',sans-serif; background:linear-gradient(130deg,#fff4f7 0%,#f9f5ff 45%,#effcf8 100%); }
+    body:before,body:after { content:''; position:fixed; z-index:-1; border-radius:50%; filter:blur(2px); opacity:.55; } body:before { width:260px;height:260px;background:#ffd866;top:-110px;left:-80px; } body:after { width:330px;height:330px;background:#bcebe1;right:-120px;bottom:-130px; }
+    .wrap { width:min(680px,calc(100% - 32px)); margin:0 auto; padding:38px 0 58px; }
+    .brand { display:flex; align-items:center; gap:9px; font-family:Nunito,sans-serif; font-weight:900; letter-spacing:-.4px; } .spark { font-size:24px; transform:rotate(-12deg); }
+    .card { background:rgba(255,255,255,.9); border:1.5px solid rgba(255,255,255,.95); box-shadow:0 18px 55px rgba(75,54,123,.12); border-radius:30px; padding:clamp(26px,6vw,52px); margin-top:24px; overflow:hidden; }
+    .hero { text-align:center; padding-top:44px; } .mascot { width:94px;height:94px;border-radius:31px;background:#fff0a8;display:grid;place-items:center;font-size:51px;margin:0 auto 22px;transform:rotate(-5deg);box-shadow:6px 7px 0 #f0c75c; }
+    h1 { font-family:Nunito,'Gowun Dodum',sans-serif; font-size:clamp(31px,7vw,48px); line-height:1.14; letter-spacing:-1.8px; margin:0; } h1 span { color:#ff6596; } .intro { color:var(--sub); line-height:1.8; font-size:16px; margin:20px 0 29px; }
+    button { border:0; cursor:pointer; font:inherit; transition:.18s ease; } .primary { color:white; background:var(--ink); border-radius:16px; padding:15px 28px; font-weight:bold; box-shadow:0 5px 0 #120d29; } .primary:hover { transform:translateY(-2px); box-shadow:0 7px 0 #120d29; } .primary:active { transform:translateY(3px); box-shadow:0 2px 0 #120d29; }
+    .hidden { display:none; } .topline { display:flex; justify-content:space-between; color:var(--sub); font-size:13px; margin-bottom:11px; } .bar { height:9px; border-radius:20px; background:#eee9f7; overflow:hidden; margin-bottom:35px; } .bar i { display:block;height:100%;background:linear-gradient(90deg,var(--pink),var(--purple));border-radius:inherit;transition:width .35s; }
+    .q-tag { color:#8d73d5; font-family:Nunito,sans-serif;font-weight:900;font-size:14px; } h2 { font-family:Nunito,'Gowun Dodum',sans-serif; font-size:clamp(24px,5vw,32px); letter-spacing:-.8px; line-height:1.35; margin:9px 0 25px; }
+    .answers { display:grid;gap:11px; } .answer { text-align:left; border:1.5px solid #ece7f4; color:var(--ink); background:#fff; border-radius:15px; padding:15px 17px; line-height:1.45; } .answer:hover { border-color:#b49fee; background:#faf8ff; transform:translateX(3px); } .answer b { display:inline-grid;place-items:center;width:25px;height:25px;border-radius:9px;background:#f2edf9;color:#8975bd;margin-right:10px;font-family:Nunito,sans-serif; }
+    .result { text-align:center; } .result-icon { font-size:66px; line-height:1; margin-bottom:12px; } .badge { display:inline-block;color:#7860b5;background:#f0ebff;border-radius:30px;padding:7px 13px;font-size:13px;font-weight:bold; } .result h2 { margin:12px 0 8px; } .lead { font-size:17px;line-height:1.75;color:var(--sub); margin:0 auto 24px; max-width:480px; }.why { background:#faf7ff;border-radius:17px;text-align:left;padding:19px 20px;margin:22px 0; }.why strong{font-family:Nunito,sans-serif;display:block;margin-bottom:7px;}.why p{color:#635d78;font-size:14px;line-height:1.75;margin:0;}.tips { display:grid;grid-template-columns:1fr 1fr; gap:10px;text-align:left;margin:21px 0 26px; }.tip { padding:14px;border-radius:14px;background:#fff7e0;font-size:13px;line-height:1.55; }.tip:nth-child(2){background:#ebfaf5}.tip b { display:block;margin-bottom:4px; }
+    .footer { text-align:center;color:#8e88a1;font-size:12px;margin-top:21px; } @media(max-width:420px){.card{border-radius:24px;padding:26px 21px}.tips{grid-template-columns:1fr}.wrap{padding-top:22px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="brand"><span class="spark">✦</span> MY CREATOR COMPASS</div>
+    <section id="start" class="card hero">
+      <div class="mascot">🎬</div>
+      <h1>나에게 딱 맞는<br><span>콘텐츠 스타일</span>은?</h1>
+      <p class="intro">6개의 선택으로 알아보는 나만의 콘텐츠 제작 성향!<br>오늘부터 어떤 콘텐츠를 만들지 추천해 드릴게요.</p>
+      <button class="primary" onclick="beginTest()">테스트 시작하기 →</button>
+    </section>
+    <section id="quiz" class="card hidden" aria-live="polite">
+      <div class="topline"><span id="count">QUESTION 1 / 6</span><span>나의 크리에이터 타입 찾기</span></div>
+      <div class="bar"><i id="progress"></i></div>
+      <div class="q-tag" id="tag"></div><h2 id="question"></h2><div class="answers" id="answers"></div>
+    </section>
+    <section id="result" class="card result hidden" aria-live="polite">
+      <div class="result-icon" id="resultIcon"></div><span class="badge">YOUR CONTENT STYLE</span><h2 id="resultTitle"></h2><p class="lead" id="resultLead"></p>
+      <div class="why"><strong>💡 이런 콘텐츠를 추천해요</strong><p id="resultWhy"></p></div><div class="tips" id="tips"></div>
+      <button class="primary" onclick="restart()">다시 해보기 ↻</button>
+    </section>
+    <p class="footer">Made with curiosity · 당신의 이야기를 세상에 들려주세요!</p>
+  </main>
+  <script>
+    // 원하는 주제에 맞게 questions와 results의 문구만 바꾸면 다른 심리 테스트로 재사용할 수 있습니다.
+    const questions = [
+      { q:'새 콘텐츠를 만들 때, 가장 먼저 떠오르는 생각은?', a:[['P','어떤 순서와 구성이 좋을까?'],['S','나만의 경험을 어떻게 담을까?'],['T','요즘 사람들은 뭘 궁금해할까?'],['C','누구와 함께 즐길 수 있을까?']] },
+      { q:'가장 만들고 싶은 콘텐츠의 분위기는?', a:[['P','알차고 믿음직스러운 가이드'],['S','잔잔하고 공감 가는 이야기'],['T','신선하고 눈길을 끄는 짧은 영상'],['C','댓글로 수다 떨 수 있는 참여형 콘텐츠']] },
+      { q:'친구가 고민을 털어놓을 때 나는?', a:[['P','현실적인 해결 순서를 정리해 준다'],['S','내 비슷한 경험을 들려주며 공감한다'],['T','새롭고 재밌는 관점을 던져 준다'],['C','함께 할 사람이나 방법을 찾아본다']] },
+      { q:'콘텐츠를 완성했을 때 가장 뿌듯한 순간은?', a:[['P','“정말 도움이 됐어요!”라는 반응'],['S','“내 마음을 알아준 것 같아요”라는 반응'],['T','“이거 완전 새롭다!”라는 반응'],['C','댓글창에서 사람들이 서로 대화하는 모습']] },
+      { q:'나의 작업 방식과 가장 가까운 것은?', a:[['P','계획표와 체크리스트를 먼저 만든다'],['S','그날의 감정과 영감을 따라 만든다'],['T','여러 가지를 가볍게 시도해 본다'],['C','피드백을 주고받으며 함께 다듬는다']] },
+      { q:'당신의 콘텐츠를 한 단어로 표현한다면?', a:[['P','명확함'],['S','진심'],['T','발견'],['C','연결']] }
+    ];
+    const results = {
+      P:{icon:'🧭',title:'든든한 정보 설계자',lead:'복잡한 것을 쉽고 정확하게 정리하는 당신! 사람들의 “어떻게 하지?”를 해결해 주는 크리에이터예요.',why:'체크리스트, 단계별 튜토리얼, 비교·정리 콘텐츠가 잘 맞아요. 전공이나 관심사를 “처음 보는 사람도 이해하는 법”으로 풀어 보세요.',tips:[['추천 포맷','카드뉴스 · 가이드 영상'],['첫 주제','내가 아는 것을 5단계로 정리하기']]},
+      S:{icon:'🌷',title:'마음을 건네는 이야기꾼',lead:'당신은 일상의 감정과 경험을 따뜻한 이야기로 바꾸는 사람입니다. 솔직함이 가장 큰 매력이에요.',why:'브이로그, 에세이형 글, 경험담 콘텐츠가 잘 맞아요. 완벽한 정보보다 당신만이 할 수 있는 관찰과 감정을 들려주세요.',tips:[['추천 포맷','감성 릴스 · 에세이'],['첫 주제','최근 나를 바꾼 작은 순간']]},
+      T:{icon:'⚡',title:'새로움을 찾는 트렌드 탐험가',lead:'호기심 레이더가 빠른 당신! 낯선 것을 먼저 발견해 가볍고 신선하게 보여 주는 재능이 있어요.',why:'신기한 도전, 신상 리뷰, 짧은 실험 콘텐츠가 잘 맞아요. 유행을 따라가기보다 “내가 직접 해봤다”는 관점을 더해 보세요.',tips:[['추천 포맷','숏폼 · 실험 리뷰'],['첫 주제','이번 주 궁금했던 것 직접 해보기']]},
+      C:{icon:'🤝',title:'사람을 잇는 커뮤니티 메이커',lead:'혼자 빛나기보다 함께 즐거운 장면을 만드는 당신! 대화가 계속되는 공간을 만드는 힘이 있어요.',why:'투표, 인터뷰, 챌린지, 라이브처럼 참여를 부르는 콘텐츠가 잘 맞아요. 팔로워를 관객이 아닌 동료로 초대해 보세요.',tips:[['추천 포맷','참여형 릴스 · 인터뷰'],['첫 주제','팔로워에게 다음 주제 투표받기']]}
+    };
+    let index=0, score={P:0,S:0,T:0,C:0};
+    function beginTest(){document.getElementById('start').classList.add('hidden');document.getElementById('quiz').classList.remove('hidden');renderQuestion();}
+    function renderQuestion(){const item=questions[index];document.getElementById('count').textContent=`QUESTION ${index+1} / ${questions.length}`;document.getElementById('progress').style.width=`${(index/questions.length)*100}%`;document.getElementById('tag').textContent=`Q${String(index+1).padStart(2,'0')}`;document.getElementById('question').textContent=item.q;document.getElementById('answers').innerHTML=item.a.map((x,i)=>`<button class="answer" onclick="choose('${x[0]}')"><b>${String.fromCharCode(65+i)}</b>${x[1]}</button>`).join('');}
+    function choose(type){score[type]++; index++; if(index<questions.length) renderQuestion(); else showResult();}
+    function showResult(){document.getElementById('quiz').classList.add('hidden');document.getElementById('result').classList.remove('hidden');document.getElementById('progress').style.width='100%'; const winner=Object.keys(score).reduce((a,b)=>score[a]>=score[b]?a:b);const r=results[winner];document.getElementById('resultIcon').textContent=r.icon;document.getElementById('resultTitle').textContent=r.title;document.getElementById('resultLead').textContent=r.lead;document.getElementById('resultWhy').textContent=r.why;document.getElementById('tips').innerHTML=r.tips.map(t=>`<div class="tip"><b>${t[0]}</b>${t[1]}</div>`).join('');}
+    function restart(){index=0;score={P:0,S:0,T:0,C:0};document.getElementById('result').classList.add('hidden');document.getElementById('start').classList.remove('hidden');}
+  </script>
+</body>
+</html>
